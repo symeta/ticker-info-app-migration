@@ -22,6 +22,7 @@ DocumentDB Java SDK is per link below:
 ## Migrate Existing Data from Self-built Redis to Elasticache for Redis Instance
 
 There are two ways to achieve Task3-Migrate Existing Data from Self-built Redis to Elasticache for Redis Instance.
+**Do Implement Migration durign Migration Window**
 
 - via Elastiche for Redis built-in Data Migration Job
   - Create Elasticache for Redis cluster via AWS console or CLI
@@ -33,11 +34,60 @@ There are two ways to achieve Task3-Migrate Existing Data from Self-built Redis 
   ![redis1](https://github.com/symeta/ticker-info-app-migration/assets/97269758/1f4b6532-95aa-4083-9a8e-bcf696e22b80)
 
 - via File Dumpling and Upload
-  - Implement Migration durign Migration Window
   - Create an S3 Bucket
   - Create Redis Backup via BGSAVE or SAVE, and upload the Backup to S3 bucket
   - Make sure Elasticache Cluster has the permission to read the RDB file. If not, give the right permission to Elasticache Cluster
   - Restore RDB file data to the Elasticache Cluster
   ![redis2](https://github.com/symeta/ticker-info-app-migration/assets/97269758/52735123-16b6-4158-9c1c-c00b5242aca5)
+
+
+## Migrate Existing Data from Self-built Mysql to DocDB via DMS
+Task4.1-Migrate Existing Data from Self-built Mysql to DocDB via DMS
+
+could refer to [this blog](https://aws.amazon.com/cn/blogs/database/migrating-relational-databases-to-amazon-documentdb-with-mongodb-compatibility/) for Detailed Implementation Guide.
+
+There are two points that need to be highlighted:
+
+**1st:**
+ - do not use 'rds-combined-ca-bundle.pem' mentioned in the blog. Instead, use 'global-bundle.pem' appeared in [ec2 connect docdb manually](https://docs.aws.amazon.com/documentdb/latest/developerguide/connect-ec2-manual.html)
+ 
+ <img width="859" alt="Screenshot 2024-06-23 at 18 38 54" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/ea7ec88a-b6d4-4874-936d-8945caf26fbf">
+
+ <img width="1056" alt="Screenshot 2024-06-23 at 18 42 53" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/f47a49dc-e180-4382-a1e0-ebd03f28183e">
+
+ ```cmd
+ wget https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
+ ```
+**2nd:**
+ - when try to connect the docdb instance via ec2 console, make sure the ec2 is provisioned using Amazon Linux2 AMI. Because Amazon Linux2 has pre-installed relevant packages/libraries used for mongo shell
+ ![image](https://github.com/symeta/ticker-info-app-migration/assets/97269758/c7d2d737-7ab9-4b7b-8625-29c7d013b1e7)
+
+- the detailed implementation guide of how to connect to docdb instance via ec2 console is shown in [ec2 connect docdb manually](https://docs.aws.amazon.com/documentdb/latest/developerguide/connect-ec2-manual.html)
+
+After successfully accomplishing DMS task, use the below command to check whether the original data in Mysql has been migrated to Docdb.
+
+```mongosh
+#show all the schema in the docdb instance
+show dbs
+
+#switch schema to the target schema
+use <target schema name>
+
+#show all tables under target schema
+db.getCollectionNames()
+
+#show one record of a table
+db.<specific collection name>.find()
+
+#count the records numer of a table
+db.<specific collection name>.count()
+```
+
+
+## Merge Multiple Ticker Data Table into One DocDB Table
+Task4.2-Merge Multiple Ticker Data Table into One DocDB Table
+
+
+
 
 
