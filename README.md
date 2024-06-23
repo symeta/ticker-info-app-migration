@@ -46,19 +46,30 @@ Task4.1-Migrate Existing Data from Self-built Mysql to DocDB via DMS
 
 could refer to [this blog](https://aws.amazon.com/cn/blogs/database/migrating-relational-databases-to-amazon-documentdb-with-mongodb-compatibility/) for Detailed Implementation Guide.
 
-There are two points that need to be highlighted:
+Besides the guidance, there are **3 points** that need to be highlighted:
 
 **1st:**
- - do not use 'rds-combined-ca-bundle.pem' mentioned in the blog. Instead, use 'global-bundle.pem' appeared in [ec2 connect docdb manually](https://docs.aws.amazon.com/documentdb/latest/developerguide/connect-ec2-manual.html)
+ - as a preparation job for the latter Task4.2-Merge Multiple Ticker Data Table into One DocDB Table, you must alter all target mysql table by adding a NULL field named '_id'. The specific SQL command is shown below:
+ 
+```sql
+ALTER TABLE <target table name> ADD COLUMN _id varchar(20) NULL;
+```
+
+**2nd:**
+ - do not use 'rds-combined-ca-bundle.pem' mentioned in the blog (as shown in the first snapshot below). Instead, use 'global-bundle.pem' appeared in [ec2 connect docdb manually](https://docs.aws.amazon.com/documentdb/latest/developerguide/connect-ec2-manual.html)(as shown in the second snapshot below)
  
  <img width="859" alt="Screenshot 2024-06-23 at 18 38 54" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/ea7ec88a-b6d4-4874-936d-8945caf26fbf">
 
  <img width="1056" alt="Screenshot 2024-06-23 at 18 42 53" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/f47a49dc-e180-4382-a1e0-ebd03f28183e">
 
+
+ 
  ```cmd
  wget https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
  ```
-**2nd:**
+
+
+**3rd:**
  - when try to connect the docdb instance via ec2 console, make sure the ec2 is provisioned using Amazon Linux2 AMI. Because Amazon Linux2 has pre-installed relevant packages/libraries used for mongo shell
  ![image](https://github.com/symeta/ticker-info-app-migration/assets/97269758/c7d2d737-7ab9-4b7b-8625-29c7d013b1e7)
 
@@ -85,7 +96,9 @@ db.<specific collection name>.count()
 
 
 ## Merge Multiple Ticker Data Table into One DocDB Table
-Task4.2-Merge Multiple Ticker Data Table into One DocDB Table
+Task4.2-Merge Multiple Ticker Data Table into One DocDB Table. The steps are as follows:
+ - Extract the data in the target docdb schema collections (mongodb table) into json file via export.py 
+ - Create a new collection using the extracted files generated in the 1st step via python import.py
 
 
 
