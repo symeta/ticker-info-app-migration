@@ -2,7 +2,7 @@
 
 ## Migration Diagram
 
-<img width="800" alt="image" align="center" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/58faace9-0712-4ce0-8c8d-7d7149ec9589">
+  <img width="730" alt="image" align="center" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/58faace9-0712-4ce0-8c8d-7d7149ec9589">
 
 
 ## Data Pre-processing Module Development & Ticker Info Application Upgrade
