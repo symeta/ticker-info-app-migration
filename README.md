@@ -8,7 +8,7 @@
 ## Data Pre-processing Module Development & Ticker Info Application Upgrade
 
 Both Data Pre-processing Module Development (Task1) and Ticker Info Application Upgrade (Task2) need to deal with read/write Docdb instance via Java.
-
+<span style="color:orange">**blue**</span>
 DocumentDB Connection via Java is per link below:
  - [DocumentDB Connection for Java](https://github.com/aws-samples/amazon-documentdb-samples/blob/master/samples/app-config/src/main/java/com/example/app/DocumentDBConnection.java)
 
