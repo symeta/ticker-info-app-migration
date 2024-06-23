@@ -7,8 +7,8 @@
 
 ## Data Pre-processing Module Development & Ticker Info Application Upgrade
 
-Both Data Pre-processing Module Development (Task1) and Ticker Info Application Upgrade (Task2) need to deal with read/write Docdb instance via Java.
-<span style="color:orange">**blue**</span>
+Both Data Pre-processing Module Development (**Task1**) and Ticker Info Application Upgrade (**Task2**) need to deal with read/write Docdb instance via Java.
+
 DocumentDB Connection via Java is per link below:
  - [DocumentDB Connection for Java](https://github.com/aws-samples/amazon-documentdb-samples/blob/master/samples/app-config/src/main/java/com/example/app/DocumentDBConnection.java)
 
@@ -21,10 +21,10 @@ DocumentDB Java SDK is per link below:
 
 ## Migrate Existing Data from Self-built Redis to Elasticache for Redis Instance
 
-There are two ways to achieve Task3-Migrate Existing Data from Self-built Redis to Elasticache for Redis Instance.
+There are two ways to achieve **Task3**-Migrate Existing Data from Self-built Redis to Elasticache for Redis Instance.
 **Do Implement Migration durign Migration Window**
 
-- via Elastiche for Redis built-in Data Migration Job
+- **Method1:** via Elastiche for Redis built-in Data Migration Job
   - Create Elasticache for Redis cluster via AWS console or CLI
   - Choose Migrate Data from Endpoint via Cluster Console
     <img width="639" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/f058fbd1-415d-4f48-a9a3-aed414566763">
@@ -33,7 +33,7 @@ There are two ways to achieve Task3-Migrate Existing Data from Self-built Redis 
     <img width="639" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/1f4b6532-95aa-4083-9a8e-bcf696e22b80">
 
 
-- via File Dumpling and Upload
+- **Method2:** via File Dumpling and Upload
   - Create an S3 Bucket
   - Create Redis Backup via BGSAVE or SAVE, and upload the Backup to S3 bucket
   - Make sure Elasticache Cluster has the permission to read the RDB file. If not, give the right permission to Elasticache Cluster
@@ -46,7 +46,7 @@ There are two ways to achieve Task3-Migrate Existing Data from Self-built Redis 
 
 
 ## Migrate Existing Data from Self-built Mysql to DocDB via DMS
-Task4.1-Migrate Existing Data from Self-built Mysql to DocDB via DMS
+**Task4.1**-Migrate Existing Data from Self-built Mysql to DocDB via DMS
 
 could refer to [this blog](https://aws.amazon.com/cn/blogs/database/migrating-relational-databases-to-amazon-documentdb-with-mongodb-compatibility/) for Detailed Implementation Guide.
 
@@ -62,9 +62,9 @@ ALTER TABLE <target table name> ADD COLUMN _id varchar(20) NULL;
 **2nd:**
  - do not use 'rds-combined-ca-bundle.pem' mentioned in the blog (as shown in the first snapshot below). Instead, use 'global-bundle.pem' appeared in [ec2 connect docdb manually](https://docs.aws.amazon.com/documentdb/latest/developerguide/connect-ec2-manual.html)(as shown in the second snapshot below)
  
- <img width="859" alt="Screenshot 2024-06-23 at 18 38 54" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/ea7ec88a-b6d4-4874-936d-8945caf26fbf">
+ <img width="639" alt="Screenshot 2024-06-23 at 18 38 54" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/ea7ec88a-b6d4-4874-936d-8945caf26fbf">
 
- <img width="1056" alt="Screenshot 2024-06-23 at 18 42 53" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/f47a49dc-e180-4382-a1e0-ebd03f28183e">
+ <img width="639" alt="Screenshot 2024-06-23 at 18 42 53" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/f47a49dc-e180-4382-a1e0-ebd03f28183e">
 
 
  
@@ -75,7 +75,9 @@ ALTER TABLE <target table name> ADD COLUMN _id varchar(20) NULL;
 
 **3rd:**
  - when try to connect the docdb instance via ec2 console, make sure the ec2 is provisioned using Amazon Linux2 AMI. Because Amazon Linux2 has pre-installed relevant packages/libraries used for mongo shell
- ![image](https://github.com/symeta/ticker-info-app-migration/assets/97269758/c7d2d737-7ab9-4b7b-8625-29c7d013b1e7)
+
+ <img width="639" alt="Screenshot 2024-06-23 at 18 42 53" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/c7d2d737-7ab9-4b7b-8625-29c7d013b1e7">
+
 
 - the detailed implementation guide of how to connect to docdb instance via ec2 console is shown in [ec2 connect docdb manually](https://docs.aws.amazon.com/documentdb/latest/developerguide/connect-ec2-manual.html)
 
