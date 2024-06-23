@@ -28,6 +28,7 @@ There are two ways to achieve Task3-Migrate Existing Data from Self-built Redis 
   - Create Elasticache for Redis cluster via AWS console or CLI
   - Choose Migrate Data from Endpoint via Cluster Console
     <img width="639" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/f058fbd1-415d-4f48-a9a3-aed414566763">
+    
   - Configure Source Redis Endpoint Information and Star Migration
     <img width="639" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/1f4b6532-95aa-4083-9a8e-bcf696e22b80">
 
@@ -37,7 +38,11 @@ There are two ways to achieve Task3-Migrate Existing Data from Self-built Redis 
   - Create Redis Backup via BGSAVE or SAVE, and upload the Backup to S3 bucket
   - Make sure Elasticache Cluster has the permission to read the RDB file. If not, give the right permission to Elasticache Cluster
   - Restore RDB file data to the Elasticache Cluster
-  ![redis2](https://github.com/symeta/ticker-info-app-migration/assets/97269758/52735123-16b6-4158-9c1c-c00b5242aca5)
+  
+  <img width="512" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/c2ae320a-5e71-4100-8cb1-2004e5203cd0">
+
+  The detailed implementation guidance could be referred as [Seeding a Self-designed Cluster with a Backup](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-seeding-redis.html)
+
 
 
 ## Migrate Existing Data from Self-built Mysql to DocDB via DMS
