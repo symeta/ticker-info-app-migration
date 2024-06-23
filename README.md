@@ -41,7 +41,7 @@ There are two ways to achieve **Task3**-Migrate Existing Data from Self-built Re
   
   <img width="512" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/c2ae320a-5e71-4100-8cb1-2004e5203cd0">
 
-  The detailed implementation guidance could be referred as [Seeding a Self-designed Cluster with a Backup](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-seeding-redis.html)
+  The detailed implementation guidance could be referred per [Seeding a Self-designed Cluster with a Backup](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-seeding-redis.html)
 
 
 
@@ -58,6 +58,8 @@ Besides the guidance, there are **3 points** that need to highlight:
 ```sql
 ALTER TABLE <target table name> ADD COLUMN _id varchar(20) NULL;
 ```
+
+The field _id will be the primary key. During DMS task, _id will be fulfilled with global unique values. Index does not migrate, index needs to be re-built on the merged table (operatoin guidance could be referred per 'Create Index on the merged table' section)
 
 **2nd:**
  - do not use 'rds-combined-ca-bundle.pem' mentioned in the blog (as shown in the first snapshot below). Instead, use 'global-bundle.pem' appeared in [ec2 connect docdb manually](https://docs.aws.amazon.com/documentdb/latest/developerguide/connect-ec2-manual.html)(as shown in the second snapshot below)
@@ -111,6 +113,12 @@ db.<specific collection name>.count()
 **Task4.2**-Merge Multiple Ticker Data Table into One DocDB Table. The steps are as follows:
  - Extract the data in the target docdb schema collections (mongodb table) into json file via [export.py](https://github.com/symeta/ticker-info-app-migration/blob/main/export.py)
  - Create a new collection using the extracted files generated in the 1st step via python [import.py](https://github.com/symeta/ticker-info-app-migration/blob/main/import.py)
+ - Create Index on the merged table
+ ```mongosh
+ db.timetrend_merged.createIndex( { "instrumentId": 1, "EndTime": 1 },{ unique: true } )
+
+ db.timetrend_merged.getIndexes()
+ ```
 
 **One point needs to lighlight:**
 mongoexport/mongoimport install command:
