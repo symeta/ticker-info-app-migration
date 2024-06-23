@@ -46,7 +46,7 @@ Task4.1-Migrate Existing Data from Self-built Mysql to DocDB via DMS
 
 could refer to [this blog](https://aws.amazon.com/cn/blogs/database/migrating-relational-databases-to-amazon-documentdb-with-mongodb-compatibility/) for Detailed Implementation Guide.
 
-Besides the guidance, there are **3 points** that need to be highlighted:
+Besides the guidance, there are **3 points** that need to highlight:
 
 **1st:**
  - as a preparation job for the latter Task4.2-Merge Multiple Ticker Data Table into One DocDB Table, you must alter all target mysql table by adding a NULL field named '_id'. The specific SQL command is shown below:
@@ -97,8 +97,15 @@ db.<specific collection name>.count()
 
 ## Merge Multiple Ticker Data Table into One DocDB Table
 Task4.2-Merge Multiple Ticker Data Table into One DocDB Table. The steps are as follows:
- - Extract the data in the target docdb schema collections (mongodb table) into json file via export.py 
- - Create a new collection using the extracted files generated in the 1st step via python import.py
+ - Extract the data in the target docdb schema collections (mongodb table) into json file via [export.py](https://github.com/symeta/ticker-info-app-migration/blob/main/export.py)
+ - Create a new collection using the extracted files generated in the 1st step via python [import.py](https://github.com/symeta/ticker-info-app-migration/blob/main/import.py)
+
+**One point needs to lighlight:**
+mongoexport install command:
+
+```sh
+sudo yum install mongodb-org-tools
+```
 
 
 
