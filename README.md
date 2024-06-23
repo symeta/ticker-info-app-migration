@@ -29,9 +29,7 @@ There are two ways to achieve Task3-Migrate Existing Data from Self-built Redis 
   - Choose Migrate Data from Endpoint via Cluster Console
   - Configure Source Redis Endpoint Information and Star Migration
 
-  ![redis0](https://github.com/symeta/ticker-info-app-migration/assets/97269758/f058fbd1-415d-4f48-a9a3-aed414566763)
-<img src="redis0" alt="drawing" width="200"/>
-
+<img width="639" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/f058fbd1-415d-4f48-a9a3-aed414566763">
 
   ![redis1](https://github.com/symeta/ticker-info-app-migration/assets/97269758/1f4b6532-95aa-4083-9a8e-bcf696e22b80)
 
