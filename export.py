@@ -25,8 +25,8 @@ for collection in collections:
     --collection={collection} \
     --db=docdb-bbae \
     --out={output_file} \
-    --username=bbaeadmin \
-    --password=Huawei12#$ \
+    --username={username} \
+    --password={password} \
     --sslCAFile global-bundle.pem"
     os.system(command)
     print(f"Exported collection {collection} to {output_file}")
