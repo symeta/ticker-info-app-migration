@@ -3,7 +3,7 @@ import subprocess
 
 host = "docdb-bbae-ticker.cluster-ckijl4cofaxc.us-east-1.docdb.amazonaws.com"
 username = "bbaeadmin"
-password = "Huawei12#$"
+password = "********"
 database_name = "docdb-bbae"
 collection_name = "tickdata_new"
 

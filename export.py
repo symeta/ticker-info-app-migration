@@ -4,7 +4,7 @@ from pymongo import MongoClient
 #MongoDB Connection Info 
 host = "docdb-bbae-ticker.cluster-ckijl4cofaxc.us-east-1.docdb.amazonaws.com"
 username = "bbaeadmin"
-password = "Huawei12#$"
+password = "********"
 database_name = "docdb-bbae"
 
 #Create MongoDB Client
