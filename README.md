@@ -21,13 +21,19 @@ DocumentDB Java SDK is per link below:
 
 ## Migrate Existing Data from Self-built Redis to Elasticache for Redis Instance
 
-There are two ways to achieve Task3:Migrate Existing Data from Self-built Redis to Elasticache for Redis Instance.
+There are two ways to achieve Task3-Migrate Existing Data from Self-built Redis to Elasticache for Redis Instance.
 
 - via Elastiche for Redis built-in Data Migration Job
   - Create Elasticache for Redis cluster via AWS console or CLI
   - Choose Migrate Data from Endpoint via Cluster Console
   - Configure Source Redis Endpoint Information and Star Migration
   
-  
 - via File Dumpling and Upload
+  - Implement Migration durign Migration Window
+  - Create an S3 Bucket
+  - Create Redis Backup via BGSAVE or SAVE, and upload the Backup to S3 bucket
+  - Give permission to Elasticache Cluster to read the RDB file
+  - Restore RDB file data to the Elasticache Cluster
+  ![redis2](https://github.com/symeta/ticker-info-app-migration/assets/97269758/52735123-16b6-4158-9c1c-c00b5242aca5)
+
 
