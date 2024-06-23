@@ -113,7 +113,7 @@ Task4.2-Merge Multiple Ticker Data Table into One DocDB Table. The steps are as 
  - Create a new collection using the extracted files generated in the 1st step via python [import.py](https://github.com/symeta/ticker-info-app-migration/blob/main/import.py)
 
 **One point needs to lighlight:**
-mongoexport install command:
+mongoexport/mongoimport install command:
 
 ```sh
 sudo yum install mongodb-org-tools
