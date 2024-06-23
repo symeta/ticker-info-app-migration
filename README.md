@@ -53,7 +53,7 @@ could refer to [this blog](https://aws.amazon.com/cn/blogs/database/migrating-re
 Besides the guidance, there are **3 points** that need to highlight:
 
 **1st:**
- - as a preparation job for the latter Task4.2-Merge Multiple Ticker Data Table into One DocDB Table, you must alter all target mysql table by adding a NULL field named '_id'. The specific SQL command is shown below:
+ - as a preparation job for the latter **Task4.2**-Merge Multiple Ticker Data Table into One DocDB Table, you must alter all target mysql table by adding a NULL field named '_id'. The specific SQL command is shown below:
  
 ```sql
 ALTER TABLE <target table name> ADD COLUMN _id varchar(20) NULL;
@@ -108,7 +108,7 @@ db.<specific collection name>.count()
 
 
 ## Merge Multiple Ticker Data Table into One DocDB Table
-Task4.2-Merge Multiple Ticker Data Table into One DocDB Table. The steps are as follows:
+**Task4.2**-Merge Multiple Ticker Data Table into One DocDB Table. The steps are as follows:
  - Extract the data in the target docdb schema collections (mongodb table) into json file via [export.py](https://github.com/symeta/ticker-info-app-migration/blob/main/export.py)
  - Create a new collection using the extracted files generated in the 1st step via python [import.py](https://github.com/symeta/ticker-info-app-migration/blob/main/import.py)
 
