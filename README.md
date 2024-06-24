@@ -27,10 +27,10 @@ There are two ways to achieve **Task3**-Migrate Existing Data from Self-built Re
 - **Method1:** via Elastiche for Redis built-in Data Migration Job
   - Create Elasticache for Redis cluster via AWS console or CLI
   - Choose Migrate Data from Endpoint via Cluster Console
-    <img width="639" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/f058fbd1-415d-4f48-a9a3-aed414566763">
+     <img width="570" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/f058fbd1-415d-4f48-a9a3-aed414566763">
     
   - Configure Source Redis Endpoint Information and Star Migration
-    <img width="639" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/1f4b6532-95aa-4083-9a8e-bcf696e22b80">
+     <img width="570" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/1f4b6532-95aa-4083-9a8e-bcf696e22b80">
 
 
 - **Method2:** via File Dumpling and Upload
@@ -39,7 +39,7 @@ There are two ways to achieve **Task3**-Migrate Existing Data from Self-built Re
   - Make sure Elasticache Cluster has the permission to read the RDB file. If not, give the right permission to Elasticache Cluster
   - Restore RDB file data to the Elasticache Cluster
   
-  <img width="512" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/c2ae320a-5e71-4100-8cb1-2004e5203cd0">
+     <img width="512" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/c2ae320a-5e71-4100-8cb1-2004e5203cd0">
 
   The detailed implementation guidance could be referred per [Seeding a Self-designed Cluster with a Backup](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-seeding-redis.html)
 
