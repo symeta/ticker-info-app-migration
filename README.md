@@ -65,13 +65,12 @@ The field _id will be the primary key. During DMS task, _id will be fulfilled wi
  - do not use 'rds-combined-ca-bundle.pem' mentioned in the blog (as shown in the first snapshot below). Instead, use 'global-bundle.pem' appeared in [ec2 connect docdb manually](https://docs.aws.amazon.com/documentdb/latest/developerguide/connect-ec2-manual.html)(as shown in the second snapshot below)
  
 
-   - <img width="639" alt="Screenshot 2024-06-23 at 18 38 54" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/ea7ec88a-b6d4-4874-936d-8945caf26fbf">
-   
-   - 1st Snapshot
+   <img width="639" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/e9763b45-9a4c-4ad6-9b01-673f05f07c8a">
 
-   - <img width="639" alt="Screenshot 2024-06-23 at 18 42 53" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/f47a49dc-e180-4382-a1e0-ebd03f28183e">
-   
-   - 2nd Snapshot
+
+
+   <img width="639" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/95deca29-9ead-4285-81cc-3b28e2586201">
+
 
 
  - command to get global-bundle.pem
