@@ -2,7 +2,8 @@
 
 ## Migration Diagram
 
-   <img width="730" alt="image" align="center" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/58faace9-0712-4ce0-8c8d-7d7149ec9589">
+   <img width="730" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/2226b996-fbb7-4ad1-80b0-29d45bb32ea9">
+
 
 
 ## Data Pre-processing Module Development & Ticker Info Application Upgrade
@@ -49,7 +50,8 @@ There are two ways to achieve **Task3**-Migrate Existing Data from Self-built Re
   - Make sure ElastiCache Cluster has the permission to read the RDB file. If not, give the right permission to ElastiCache Cluster
   - Restore RDB file data to the ElastiCache Cluster
   
-     <img width="512" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/c2ae320a-5e71-4100-8cb1-2004e5203cd0">
+     <img width="512" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/88bea460-73f6-43dc-ba84-ab2b00f6f39c">
+
 
   The detailed implementation guidance could be referred per [Seeding a Self-designed Cluster with a Backup](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-seeding-redis.html)
 
