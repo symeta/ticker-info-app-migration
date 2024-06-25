@@ -16,16 +16,26 @@ DocumentDB Client via Java Sample Code is per link below:
  - [DocumentDB Client for Java](https://github.com/aws-samples/amazon-documentdb-samples/blob/master/samples/app-config/src/main/java/com/example/app/DocumentDBClient.java)
 
 DocumentDB Java SDK is per link below:
- - [DocumentDB Java SDK](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/docdb/DocDbClient.html)
+ - [DocumentDB Java SDK](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/docdb/package-summary.html)
 
+Ticker Info Application Upgrade (**Task2**) also need to deal with read/write ElastiCache for Redis instance via Java
 
-## Migrate Existing Data from Self-built Redis to Elasticache for Redis Instance
+ElastiCache for Redis Client via Java is per link below:
+ - [ElastiCache for Redis Clientfor Java](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/AutoDiscovery.Using.ModifyApp.Java.html)
 
-There are two ways to achieve **Task3**-Migrate Existing Data from Self-built Redis to Elasticache for Redis Instance.
+ElastiCache for Redis Client via Java Sample Code is per link below:
+ - [ElastiCache for Redis Client for Java](https://github.com/aws-samples/amazon-ElastiCache-redis-and-memcached-java-client-examples)
+
+ElastiCache for Redis Java SDK is per link below:
+ - [ElastiCache for Redis Java SDK](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/ElastiCache/package-summary.html)
+
+## Migrate Existing Data from Self-built Redis to ElastiCache for Redis Instance
+
+There are two ways to achieve **Task3**-Migrate Existing Data from Self-built Redis to ElastiCache for Redis Instance.
 **Do Implement Migration durign Migration Window**
 
 - **Method1:** via Elastiche for Redis built-in Data Migration Job
-  - Create Elasticache for Redis cluster via AWS console or CLI
+  - Create ElastiCache for Redis cluster via AWS console or CLI
   - Choose Migrate Data from Endpoint via Cluster Console
      <img width="570" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/f058fbd1-415d-4f48-a9a3-aed414566763">
     
@@ -36,8 +46,8 @@ There are two ways to achieve **Task3**-Migrate Existing Data from Self-built Re
 - **Method2:** via File Dumpling and Upload
   - Create an S3 Bucket
   - Create Redis Backup via BGSAVE or SAVE, and upload the Backup to S3 bucket
-  - Make sure Elasticache Cluster has the permission to read the RDB file. If not, give the right permission to Elasticache Cluster
-  - Restore RDB file data to the Elasticache Cluster
+  - Make sure ElastiCache Cluster has the permission to read the RDB file. If not, give the right permission to ElastiCache Cluster
+  - Restore RDB file data to the ElastiCache Cluster
   
      <img width="512" alt="image" src="https://github.com/symeta/ticker-info-app-migration/assets/97269758/c2ae320a-5e71-4100-8cb1-2004e5203cd0">
 
